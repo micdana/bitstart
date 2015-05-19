@@ -1,7 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 
-var data = fs.reafFileSync("index.html", "utf-8");
+var data = fs.reafFileSync("webindex.html", "utf-8");
 
 var app = express.createServer(express.logger());
 
