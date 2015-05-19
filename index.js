@@ -1,16 +1,15 @@
-var express = require('express')
-var app = express();
+var express = require('express');
+var fs = require('fs');
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+var data = fs.reafFileSync("index.html", "utf-8");
 
-app.get('/', function(request, response) {
-#  response.send('Hello world2!')
-var buffer = new Buffer(16)
-buffer.write(fs.readFileSync(webindex.html))
-buffer.toString()
-})
+var app = express.createServer(express.logger());
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+app.get('/', function(request, response){
+ response.send(data);
+});
+
+var port = process.env.PORT || 5000;
+app.listen(post, function() {
+  console.log("listening on " + port);
+});
