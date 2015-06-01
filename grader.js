@@ -48,7 +48,7 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     var out = {};
     for(var ii in checks) {
 	var present = $(checks[ii]).length > 0;
-	out[chcks[ii]] = present;
+	out[checks[ii]] = present;
     }
     return out;
 };
