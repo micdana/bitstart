@@ -1,15 +1,15 @@
 var express = require('express');
 var fs = require('fs');
+var htmlfile = "webindex.html";
 
-var data = fs.readFILESYNC("WEBINDEX.HTML", "UTF-8");
+var app = express.createServer(express.logger());
 
-VAR APP = EXPRESS.CREATESERVER(EXPRESS.LOGGER());
-
-APP.GET('/', FUNCTION(REQUEST, RESPONSE){
- RESPONSE.SEND(DATA);
+app.get('/', function(request, response){
+    var html = fs.readFileSync(htmlfile)/toString();
+    response.send('html');
 });
 
-var port = process.env.PORT || 5000;
-app.listen(post, function() {
-  console.log("listening on " + port);
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+   console.log("listening on " + port);
 });
